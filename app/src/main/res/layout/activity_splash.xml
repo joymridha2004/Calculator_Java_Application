@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Splash_Activity">
+
     <ImageView
         android:id="@+id/Splash_Logo"
         android:layout_width="100dp"
@@ -42,17 +43,6 @@
         app:layout_constraintTop_toBottomOf="@+id/App_name"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/version_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/poppins_reguler"
-        android:text="@string/version"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

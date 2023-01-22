@@ -7,6 +7,21 @@
     tools:context=".Main_Activity">
 
     <TextView
+        android:id="@+id/version_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/poppins_reguler"
+        android:text="@string/version"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/Result_Text_View"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,13 +30,14 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
-        android:text="100000"
+        android:layout_marginBottom="7dp"
+        android:text="-100000"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
-        android:textSize="100sp" />
+        android:textSize="95sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/C_Right_operator_Button"
+        android:id="@+id/C_Right_Operator_Button"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_above="@+id/Button_Layout"
@@ -30,7 +46,7 @@
         android:background="@color/transparent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/C_Left_operator_Button"
+        android:id="@+id/C_Left_Operator_Button"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:layout_above="@+id/Button_Layout"
@@ -165,7 +181,7 @@
                 android:textSize="36sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/multiply_Operator_Button"
+                android:id="@+id/Multiply_Operator_Button"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="6dp"

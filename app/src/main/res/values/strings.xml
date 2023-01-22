@@ -17,12 +17,13 @@
     <string name="operator_subtraction">−</string>
     <string name="operator_division">÷</string>
     <string name="operator_multiplication">×</string>
+    <string name="percentage_operation">%</string>
+    <string name="sign_changer_operation">+/−</string>
     <string name="operator_dot">.</string>
 
     <string name="ac_operation">AC</string>
     <string name="c_operation">C</string>
-    <string name="percentage_operation">%</string>
     <string name="result_operation">=</string>
-    <string name="sign_changer_operation">+/−</string>
+
 
 </resources>
