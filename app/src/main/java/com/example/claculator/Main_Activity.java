@@ -3,6 +3,7 @@ package com.example.claculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,34 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Main_Activity extends AppCompatActivity implements View.OnClickListener {
+    String NewNumber = "";
+    String OldNumber = "";
+    String Op = "";
+    Double Result = 0.0;
+
+    boolean IsNewOpe = true;
 
     TextView ResultTextView;
-
-
-    Button AcOperatorButton;
-    Button SignChangerOperatorButton;
-    Button PercentageOperatorButton;
-    Button DivisionOperatorButton;
-    Button MultiplyOperatorButton;
-    Button SubtractionOperatorButton;
-    Button PlusOperatorButton;
-    Button ResultOperatorButton;
-    Button Dot_Operator_Button;
 
     Button CLeftOperatorButton;
     Button CRightOperatorButton;
 
-    Button No0OperatorButton;
-    Button No1OperatorButton;
-    Button No2OperatorButton;
-    Button No3OperatorButton;
-    Button No4OperatorButton;
-    Button No5OperatorButton;
-    Button No6OperatorButton;
-    Button No7OperatorButton;
-    Button No8OperatorButton;
-    Button No9OperatorButton;
-    
+    Button PlusOperatorButton;
+    Button SubtractionOperatorButton;
+    Button MultiplyOperatorButton;
+    Button DivisionOperatorButton;
 
 
     @SuppressLint("MissingInflatedId")
@@ -50,29 +39,13 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
 
         ResultTextView = findViewById(R.id.Result_Text_View);
 
-        AcOperatorButton = findViewById(R.id.Ac_Operator_Button);
-        SignChangerOperatorButton = findViewById(R.id.Sign_Changer_Operator_Button);
-        PercentageOperatorButton = findViewById(R.id.Percentage_Operator_Button);
-        DivisionOperatorButton = findViewById(R.id.Division_Operator_Button);
-        MultiplyOperatorButton = findViewById(R.id.Multiply_Operator_Button);
-        SubtractionOperatorButton = findViewById(R.id.Subtraction_Operator_Button);
-        PlusOperatorButton = findViewById(R.id.Plus_Operator_Button);
-        ResultOperatorButton = findViewById(R.id.Result_Operator_Button);
-        Dot_Operator_Button = findViewById(R.id.Dot_Operator_Button);
-
         CLeftOperatorButton = findViewById(R.id.C_Left_Operator_Button);
         CRightOperatorButton = findViewById(R.id.C_Right_Operator_Button);
 
-        No0OperatorButton = findViewById(R.id.No_0_Operator_Button);
-        No1OperatorButton = findViewById(R.id.No_1_Operator_Button);
-        No2OperatorButton = findViewById(R.id.No_2_Operator_Button);
-        No3OperatorButton = findViewById(R.id.No_3_Operator_Button);
-        No4OperatorButton = findViewById(R.id.No_4_Operator_Button);
-        No5OperatorButton = findViewById(R.id.No_5_Operator_Button);
-        No6OperatorButton = findViewById(R.id.No_6_Operator_Button);
-        No7OperatorButton = findViewById(R.id.No_7_Operator_Button);
-        No8OperatorButton = findViewById(R.id.No_8_Operator_Button);
-        No9OperatorButton = findViewById(R.id.No_9_Operator_Button);
+        PlusOperatorButton = findViewById(R.id.Plus_Operator_Button);
+        SubtractionOperatorButton = findViewById(R.id.Subtraction_Operator_Button);
+        MultiplyOperatorButton = findViewById(R.id.Multiply_Operator_Button);
+        DivisionOperatorButton = findViewById(R.id.Division_Operator_Button);
 
     }
 
@@ -82,6 +55,275 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
         Button CurrentButton = (Button) v;
         String ButtonText = CurrentButton.getText().toString();
 
+
+    }
+
+    public void NumberEvent(View view) {
+
+        if (ResultTextView.getText().toString().length() <= 5) {
+            ResultTextView.setTextSize(100);
+        } else if (ResultTextView.getText().toString().length() == 6) {
+            ResultTextView.setTextSize(90);
+        } else if (ResultTextView.getText().toString().length() == 7) {
+            ResultTextView.setTextSize(80);
+        } else if (ResultTextView.getText().toString().length() == 8) {
+            ResultTextView.setTextSize(70);
+        } else if (ResultTextView.getText().toString().length() >= 9 && !(ResultTextView.getText().toString().length() == 11)) {
+            ResultTextView.setTextSize(45);
+        } else if (ResultTextView.getText().toString().length() == 11) {
+            Toast.makeText(getApplicationContext(), "Max Length 12 Digit", Toast.LENGTH_SHORT).show();
+        }
+        PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+
+        if (view.getId() == R.id.No_0_Operator_Button && !IsNewOpe || view.getId() != R.id.No_0_Operator_Button) {
+
+
+            if (IsNewOpe) {
+                ResultTextView.setText("");
+                IsNewOpe = false;
+            }
+
+            String Number = ResultTextView.getText().toString();
+
+            switch (view.getId()) {
+
+                case R.id.No_0_Operator_Button: {
+                    Number += "0";
+                    break;
+                }
+                case R.id.No_1_Operator_Button: {
+                    Number += "1";
+                    break;
+                }
+                case R.id.No_2_Operator_Button: {
+                    Number += "2";
+                    break;
+                }
+                case R.id.No_3_Operator_Button: {
+                    Number += "3";
+                    break;
+                }
+                case R.id.No_4_Operator_Button: {
+                    Number += "4";
+                    break;
+                }
+                case R.id.No_5_Operator_Button: {
+                    Number += "5";
+                    break;
+                }
+                case R.id.No_6_Operator_Button: {
+                    Number += "6";
+                    break;
+                }
+                case R.id.No_7_Operator_Button: {
+                    Number += "7";
+                    break;
+                }
+                case R.id.No_8_Operator_Button: {
+                    Number += "8";
+                    break;
+                }
+                case R.id.No_9_Operator_Button: {
+                    Number += "9";
+                    break;
+                }
+                case R.id.Dot_Operator_Button: {
+                    Number += ".";
+                    break;
+                }
+                case R.id.Sign_Changer_Operator_Button: {
+                    if (!ResultTextView.getText().toString().startsWith("-")) {
+                        Number = "-" + Number;
+                    } else {
+                        Number = Number.replace("-", "");
+                    }
+                    break;
+                }
+            }
+            ResultTextView.setText(Number);
+        } else {
+            ResultTextView.setText("0");
+        }
+    }
+
+    public void OperatorEvent(View view) {
+
+        IsNewOpe = true;
+        OldNumber = ResultTextView.getText().toString();
+
+        switch (view.getId()) {
+            case R.id.Plus_Operator_Button: {
+                PlusOperatorButton.setBackgroundResource(R.drawable.work_operator_button_shape);
+                PlusOperatorButton.setTextColor(Color.parseColor("#FFFF9500"));
+                Op = "+";
+                SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                
+                break;
+            }
+            case R.id.Subtraction_Operator_Button: {
+                SubtractionOperatorButton.setBackgroundResource(R.drawable.work_operator_button_shape);
+                SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFF9500"));
+                Op = "-";
+                PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+
+                break;
+            }
+            case R.id.Multiply_Operator_Button: {
+                MultiplyOperatorButton.setBackgroundResource(R.drawable.work_operator_button_shape);
+                MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFF9500"));
+                Op = "×";
+                PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+
+                break;
+            }
+            case R.id.Division_Operator_Button: {
+                DivisionOperatorButton.setBackgroundResource(R.drawable.work_operator_button_shape);
+                DivisionOperatorButton.setTextColor(Color.parseColor("#FFFF9500"));
+                Op = "÷";
+                PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+                MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+                MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+
+                break;
+            }
+        }
+    }
+
+    public void EqualEvent(View view) {
+
+        NewNumber = ResultTextView.getText().toString();
+        Result = 0.0;
+
+        PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+
+        if ((NewNumber.equals(".") && OldNumber.equals(".") || (NewNumber.equals(".") || OldNumber.equals(".")))) {
+            ResultTextView.setText("0");
+            NewNumber = "0";
+            OldNumber = "0";
+            IsNewOpe = true;
+            return;
+        }
+
+        if (Op.equals("+")) {
+            Result = Double.parseDouble(OldNumber) + Double.parseDouble(NewNumber);
+        } else if (Op.equals("-")) {
+            Result = Double.parseDouble(OldNumber) - Double.parseDouble(NewNumber);
+        } else if (Op.equals("×")) {
+            Result = Double.parseDouble(OldNumber) * Double.parseDouble(NewNumber);
+        } else if (Op.equals("÷")) {
+            if (NewNumber.equals("0") && !OldNumber.equals("0")) {
+                (Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT)).show();
+                OldNumber = "0";
+                NewNumber = "0";
+                IsNewOpe = true;
+            } else {
+                Result = Double.parseDouble(OldNumber) / Double.parseDouble(NewNumber);
+            }
+        }
+
+
+        String FinalNumDouble = Result.toString();
+
+        if (FinalNumDouble.length() <= 6) {
+            ResultTextView.setTextSize(100);
+        } else if (FinalNumDouble.length() == 7) {
+            ResultTextView.setTextSize(90);
+        } else if (FinalNumDouble.length() == 8) {
+            ResultTextView.setTextSize(80);
+        } else if (FinalNumDouble.length() == 9) {
+            ResultTextView.setTextSize(70);
+        } else if (FinalNumDouble.length() > 9 && FinalNumDouble.length() <= 14) {
+            ResultTextView.setTextSize(45);
+        } else if (FinalNumDouble.length() > 15 && FinalNumDouble.length() <= 20) {
+            ResultTextView.setTextSize(30);
+        } else if (FinalNumDouble.length() > 20) {
+            ResultTextView.setTextSize(25);
+        }
+
+        ResultTextView.setText(Result + "");
+
+    }
+
+    public void AcEvent(View view) {
+        ResultTextView.setText("0");
+        ResultTextView.setTextSize(100);
+        IsNewOpe = true;
+
+        PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        SubtractionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        SubtractionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        MultiplyOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+        DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
+        DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+
+    public void PercentageEvent(View view) {
+        double No = Double.parseDouble(ResultTextView.getText().toString()) / 100;
+        ResultTextView.setText(No + "");
+        IsNewOpe = true;
+    }
+
+    public void clearEvent(View view) {
+        if (ResultTextView.getText().toString().length() >= 2) {
+            String ClearLastNumber = ResultTextView.getText().toString().substring(0, ResultTextView.getText().toString().length() - 1);
+            ResultTextView.setText(ClearLastNumber);
+        } else if (ResultTextView.getText().toString().length() == 1) {
+            ResultTextView.setText("0");
+            IsNewOpe = true;
+        } else if (ResultTextView.getText().toString() == "0") {
+            ResultTextView.setText("0");
+            IsNewOpe = true;
+        }
+
+        if (ResultTextView.getText().toString().length() <= 6) {
+            ResultTextView.setTextSize(100);
+        } else if (ResultTextView.getText().toString().length() == 7) {
+            ResultTextView.setTextSize(90);
+        } else if (ResultTextView.getText().toString().length() == 8) {
+            ResultTextView.setTextSize(80);
+        } else if (ResultTextView.getText().toString().length() == 9) {
+            ResultTextView.setTextSize(70);
+        } else if (ResultTextView.getText().toString().length() > 9 && ResultTextView.getText().toString().length() <= 14) {
+            ResultTextView.setTextSize(45);
+        } else if (ResultTextView.getText().toString().length() > 15 && ResultTextView.getText().toString().length() <= 20) {
+            ResultTextView.setTextSize(30);
+        } else if (ResultTextView.getText().toString().length() > 20) {
+            ResultTextView.setTextSize(25);
+        }
 
     }
 }
