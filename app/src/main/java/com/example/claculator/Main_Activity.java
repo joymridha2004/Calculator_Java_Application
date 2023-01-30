@@ -14,7 +14,7 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
     String NewNumber = "";
     String OldNumber = "";
     String Op = "";
-    Double Result = 0.0;
+    float Result = 0.0f;
 
     boolean IsNewOpe = true;
 
@@ -169,7 +169,7 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
                 MultiplyOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
                 DivisionOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
                 DivisionOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
-                
+
                 break;
             }
             case R.id.Subtraction_Operator_Button: {
@@ -217,7 +217,7 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
     public void EqualEvent(View view) {
 
         NewNumber = ResultTextView.getText().toString();
-        Result = 0.0;
+        Result = 0.0f;
 
         PlusOperatorButton.setBackgroundResource(R.drawable.operator_button_shape);
         PlusOperatorButton.setTextColor(Color.parseColor("#FFFFFF"));
@@ -237,11 +237,11 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
         }
 
         if (Op.equals("+")) {
-            Result = Double.parseDouble(OldNumber) + Double.parseDouble(NewNumber);
+            Result = Float.parseFloat(OldNumber) + Float.parseFloat(NewNumber);
         } else if (Op.equals("-")) {
-            Result = Double.parseDouble(OldNumber) - Double.parseDouble(NewNumber);
+            Result = Float.parseFloat(OldNumber) - Float.parseFloat(NewNumber);
         } else if (Op.equals("×")) {
-            Result = Double.parseDouble(OldNumber) * Double.parseDouble(NewNumber);
+            Result = Float.parseFloat(OldNumber) * Float.parseFloat(NewNumber);
         } else if (Op.equals("÷")) {
             if (NewNumber.equals("0") && !OldNumber.equals("0")) {
                 (Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT)).show();
@@ -249,12 +249,13 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
                 NewNumber = "0";
                 IsNewOpe = true;
             } else {
-                Result = Double.parseDouble(OldNumber) / Double.parseDouble(NewNumber);
+                Result = Float.parseFloat(OldNumber) / Float.parseFloat(NewNumber);
             }
         }
 
 
-        String FinalNumDouble = Result.toString();
+        Double d = 0.0;
+        String FinalNumDouble = Result + d.toString();
 
         if (FinalNumDouble.length() <= 6) {
             ResultTextView.setTextSize(100);
