@@ -13,5 +13,6 @@
     <color name="additional_button_color">#D4D4D2</color>
     <color name="app_light_blue">#FF00C8F4</color>
     <color name="transparent">#00000000</color>
+    <color name="red">#FF0000</color>
 
 </resources>

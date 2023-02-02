@@ -24,6 +24,8 @@
     <string name="ac_operation">AC</string>
     <string name="c_operation">C</string>
     <string name="result_operation">=</string>
+    <string name="github_link"><a Uri="https://github.com/joymridha2004">github.com/joymridha2004</a></string>
+    <string name="c">C</string>
 
 
 </resources>
