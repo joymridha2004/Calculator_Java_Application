@@ -3,10 +3,13 @@ package com.example.claculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +21,9 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
 
     boolean IsNewOpe = true;
 
-    TextView ResultTextView;
+    TextView ResultTextView, Project_Link;
+
+    ImageView github_link;
 
     Button CLeftOperatorButton;
     Button CRightOperatorButton;
@@ -46,6 +51,28 @@ public class Main_Activity extends AppCompatActivity implements View.OnClickList
         SubtractionOperatorButton = findViewById(R.id.Subtraction_Operator_Button);
         MultiplyOperatorButton = findViewById(R.id.Multiply_Operator_Button);
         DivisionOperatorButton = findViewById(R.id.Division_Operator_Button);
+        github_link = findViewById(R.id.github_link);
+        Project_Link = findViewById(R.id.Project_Link);
+
+        /*<------------Handle_Github_link_On_click_Listener--------->*/
+
+        github_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/joymridha2004"));
+                startActivity(intent);
+            }
+        });
+
+        /*<------------Handle_Github_Project_Link_On_click_Listener--------->*/
+
+        Project_Link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/joymridha2004/Calculator_Java_Application"));
+                startActivity(intent);
+            }
+        });
 
     }
 
